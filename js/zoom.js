@@ -13,22 +13,29 @@ export default function (zoomBlock) {
 
 
     function bindZoomMove(e) {
+        //check for image not should be zoomed
         if(zoomOverlayImage.width <= zoomImage.offsetWidth){
-            zoomOverlayImage.style.display = 'none';
+            zoomOverlayImage.classList.add('light-zoom-image-hidden');
             return;
         }else{
-            zoomOverlayImage.style.display = '';
+            zoomOverlayImage.classList.remove('light-zoom-image-hidden');
         }
-        let posX = e.touches ? e.touches[0].pageX : e.pageX,
-            posY = e.touches ? e.touches[0].pageY : e.pageY,
-            x = posX - zoomBlock.offsetLeft,
-            y = posY - zoomBlock.offsetTop;
 
-        let relativeX = x / zoomBlock.offsetWidth,
-            relativeY = y / zoomBlock.offsetHeight;
+        let rect = zoomBlock.getBoundingClientRect();
+        let posX = e.touches ? e.touches[0].clientX : e.clientX,
+            posY = e.touches ? e.touches[0].clientY : e.clientY,
+            x = posX - rect.left,
+            y = posY - rect.top;
 
-        let offsetX = relativeX * (zoomOverlayImage.width - zoomBlock.offsetWidth);
-        let offsetY = relativeY * (zoomOverlayImage.height - zoomBlock.offsetHeight);
+        let relativeX = x / rect.width,
+            relativeY = y / rect.height;
+
+        let offsetX = relativeX * (zoomOverlayImage.width - rect.width);
+        let offsetY = relativeY * (zoomOverlayImage.height - rect.height);
         zoomOverlayImage.style.transform = `translate(${-offsetX}px, ${-offsetY}px)`;
+        zoomOverlayImage.style.oTransform = `translate(${-offsetX}px, ${-offsetY}px)`;
+        zoomOverlayImage.style.mozTransform = `translate(${-offsetX}px, ${-offsetY}px)`;
+        zoomOverlayImage.style.msTransform = `translate(${-offsetX}px, ${-offsetY}px)`;
+        zoomOverlayImage.style.webkitTransform = `translate(${-offsetX}px, ${-offsetY}px)`;
     }
 }

@@ -14,11 +14,16 @@
     top: 0;
     left: 0;
     max-width: none;
-    display: none;
+    display: none !important; /*Oh, I had to use !important for fix styles, defined in other libs*/
+    width: auto !important;
 }
 
 .light-zoom:hover .light-zoom-image{
-    display: block;
+    display: block !important;
     cursor: move;
     touch-action: none;
+}
+
+.light-zoom:hover .light-zoom-image-hidden{
+    display: none !important;
 }
