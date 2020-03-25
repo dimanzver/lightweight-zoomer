@@ -1,5 +1,5 @@
 # lightweight-zoomer
-Lightweight image zoomer on Vanilia JS without dependencies, adaptive for touch devices
+Lightweight image zoomer on Vanilia JS without dependences, adaptive for touch devices
 
 # How to use
 Just import css/zoom.css and js/zoom.js. Then init zoomer by zoomImage function
