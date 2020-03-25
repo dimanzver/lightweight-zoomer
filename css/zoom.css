@@ -1,0 +1,24 @@
+.light-zoom{
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.light-zoom img:not(.light-zoom-image){
+    display: block;
+    max-width: 100%;
+}
+
+.light-zoom-image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: none;
+    display: none;
+}
+
+.light-zoom:hover .light-zoom-image{
+    display: block;
+    cursor: move;
+    touch-action: none;
+}
