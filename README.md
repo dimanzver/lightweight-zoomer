@@ -18,4 +18,4 @@ zoomImage(zoomBlock);
 ```
 
 # Demo
-[Watch demo](http://ovz1.j1047325.pr46m.vps.myjino.ru/)
+[Watch demo](https://dimanzver.github.io/lightweight-zoomer/)
